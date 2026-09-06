@@ -7,44 +7,48 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="index.html" class="logo-block">
-      <span class="logo-name">TESTEUR DUPUIS</span>
-      <span class="logo-tag">// PORTFOLIO SISR</span>
-    </a>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="parcours.html">Parcours</a></li>
-      <li><a href="competences.html">Compétences &amp; Projets</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="index.html" class="logo-block">
+        <span class="logo-name">TESTEUR DUPUIS</span>
+        <span class="logo-tag">// PORTFOLIO SISR</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html" class="active">Compétences &amp; Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
     <h1 class="page-title">Compétences &amp; Projets</h1>
 
     <h2 class="section-subtitle">Compétences Techniques</h2>
+    <div class="section-spacer-sm"></div>
+
     <div class="grid-2">
       <div class="cyber-card">
+        <div class="card-icon">🖥️</div>
         <h3>Systèmes &amp; Réseaux</h3>
         <ul class="styled-list">
           <li>Linux (Debian / Ubuntu Server)</li>
           <li>Cisco IOS (Switchs, Routeurs, VLANs)</li>
           <li>Wireshark (Analyse de trames &amp; logs)</li>
-          <li>Pare-feu &amp; Sécurité réseau (Netfilter / iptables)</li>
+          <li>Pare-feu &amp; Sécurité (Netfilter / iptables)</li>
         </ul>
       </div>
 
       <div class="cyber-card">
+        <div class="card-icon">⚡</div>
         <h3>Développement &amp; Outils</h3>
         <ul class="styled-list">
-          <li>Python (Scripts d'automatisation &amp; outils)</li>
+          <li>Python (Scripts &amp; Automatisation)</li>
           <li>Bash / Shell Linux</li>
           <li>HTML5 / CSS3</li>
           <li>Git &amp; GitHub</li>
@@ -52,32 +56,30 @@
       </div>
     </div>
 
+    <div class="section-spacer"></div>
+
     <h2 class="section-subtitle">Projets Réalisés</h2>
+    <div class="section-spacer-sm"></div>
+
     <div class="grid-2">
-      
-      <div class="cyber-card project-card">
-        <div class="card-header">
-          <h3>Serveur Web Sécurisé</h3>
-          <span class="tag">Debian / Netfilter</span>
-        </div>
+      <div class="cyber-card">
+        <div class="card-icon">🔒</div>
+        <h3>Serveur Web Sécurisé</h3>
         <p>Déploiement complet d'une infrastructure Web sécurisée sous Linux Debian avec filtrage réseau strict et durcissement système.</p>
-        <a href="projet-serveur-web.html" class="btn-cyber btn-sm">Voir les détails du projet →</a>
+        <a href="projet-serveur-web.html" class="btn-card">Voir les détails du projet →</a>
       </div>
 
-      <div class="cyber-card project-card">
-        <div class="card-header">
-          <h3>Script de Sauvegarde System</h3>
-          <span class="tag">Python / Bash</span>
-        </div>
+      <div class="cyber-card">
+        <div class="card-icon">📦</div>
+        <h3>Script de Sauvegarde System</h3>
         <p>Création d'une solution automatisée gérant la compression, le chiffrement et le contrôle d'intégrité des sauvegardes critiques.</p>
-        <a href="projet-script-backup.html" class="btn-cyber btn-sm">Voir les détails du projet →</a>
+        <a href="projet-script-backup.html" class="btn-card">Voir les détails du projet →</a>
       </div>
-
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour <span class="red-text">Portfolio For U</span></p>
+    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
   <script src="script.js"></script>
