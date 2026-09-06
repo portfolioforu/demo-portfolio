@@ -7,48 +7,61 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
- <header>
-  <nav>
-    <a href="index.html" class="logo-block">
-      <span class="logo-name">TESTEUR DUPUIS</span>
-      <span class="logo-tag">// PORTFOLIO SISR</span>
-    </a>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="parcours.html">Parcours</a></li>
-      <li><a href="competences.html">Compétences &amp; Projets</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="index.html" class="logo-block">
+        <span class="logo-name">TESTEUR DUPUIS</span>
+        <span class="logo-tag">// PORTFOLIO SISR</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html">Compétences &amp; Projets</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
     <h1 class="page-title">Me Contacter</h1>
 
-    <div class="cyber-card contact-container">
-      <p>Pour toute question, opportunité de stage ou projet, vous pouvez me contacter directement par e-mail ou via GitHub.</p>
+    <div class="section-spacer"></div>
+
+    <div class="grid-3">
       
-      <div class="contact-details">
-        <div class="contact-item">
-          <strong>Adresse Email :</strong>
-          <a href="mailto:test2@portfolioforu.com" class="link-red">test2@portfolioforu.com</a>
-        </div>
-        <div class="contact-item">
-          <strong>GitHub :</strong>
-          <a href="https://github.com/testeur-dupuis" target="_blank" rel="noopener noreferrer" class="link-red">github.com/testeur-dupuis ↗</a>
-        </div>
+      <!-- Carte Email -->
+      <div class="cyber-card contact-card">
+        <div class="card-icon">✉️</div>
+        <h3>Adresse Email</h3>
+        <p>test2@portfolioforu.com</p>
+        <a href="mailto:test2@portfolioforu.com" class="btn-card">Envoyer un mail →</a>
       </div>
 
-      <a href="mailto:test2@portfolioforu.com" class="btn-cyber full-btn">Envoyer un e-mail ✉</a>
+      <!-- Carte GitHub -->
+      <div class="cyber-card contact-card">
+        <div class="card-icon">🐙</div>
+        <h3>GitHub</h3>
+        <p>@testeur-dupuis</p>
+        <a href="https://github.com/testeur-dupuis" target="_blank" rel="noopener noreferrer" class="btn-card">Voir mon GitHub ↗</a>
+      </div>
+
+      <!-- Carte LinkedIn -->
+      <div class="cyber-card contact-card">
+        <div class="card-icon">💼</div>
+        <h3>LinkedIn</h3>
+        <p>Testeur Dupuis</p>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-card">Voir mon profil ↗</a>
+      </div>
+
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour <span class="red-text">Portfolio For U</span></p>
+    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
   <script src="script.js"></script>
