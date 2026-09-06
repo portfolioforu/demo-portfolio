@@ -7,29 +7,30 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
- <header>
-  <nav>
-    <a href="index.html" class="logo-block">
-      <span class="logo-name">TESTEUR DUPUIS</span>
-      <span class="logo-tag">// PORTFOLIO SISR</span>
-    </a>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="parcours.html">Parcours</a></li>
-      <li><a href="competences.html">Compétences &amp; Projets</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="index.html" class="logo-block">
+        <span class="logo-name">TESTEUR DUPUIS</span>
+        <span class="logo-tag">// PORTFOLIO SISR</span>
+      </a>
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html">Compétences &amp; Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
     
-    <section class="hero-box">
-      <div class="badge-cyber">● BTS SIO SISR &amp; ADMINISTRATEUR SYSTÈME</div>
+    <!-- Hero Box -->
+    <section class="cyber-card hero-box">
+      <div class="card-icon">💻</div>
       <h1>Testeur Dupuis</h1>
       <p class="hero-bio">
         Étudiant en BTS SIO (Option SISR), passionné par l'architecture réseau, l'administration de serveurs Linux/Windows et la sécurisation des infrastructures d'entreprise.
@@ -37,10 +38,11 @@
       
       <div class="hero-actions">
         <a href="Cv_Nathan_Cattin.pdf" target="_blank" class="btn-cyber">Télécharger mon CV 📄</a>
-        <a href="contact.html" class="btn-secondary">Me contacter ✉</a>
+        <a href="contact.html" class="btn-cyber btn-outline">Me contacter ✉</a>
       </div>
     </section>
 
+    <!-- Stat Cards -->
     <section class="stats-grid">
       <div class="stat-card">
         <span class="stat-number">2+</span>
@@ -56,44 +58,43 @@
       </div>
     </section>
 
-    <section class="summary-grid">
-      <div class="cyber-card highlight-card">
-        <span class="card-tag">Profil</span>
-        <h3>À propos de moi</h3>
-        <p>
-          Formé aux exigences du terrain informatique, je maîtrise le déploiement de services réseau critiques (DNS, DHCP, Active Directory), le suivi d'incidents et le scripting d'automatisation. Rigoureux et curieux, je prépare une spécialisation en cybersécurité.
-        </p>
-        <a href="parcours.html" class="link-red">Découvrir mon profil complet →</a>
-      </div>
-
-      <div class="cyber-card highlight-card">
-        <span class="card-tag">Expérience clé</span>
-        <h3>Technicien Réseau — TechData</h3>
-        <p>
-          Intervention directe sur l'infrastructure : configuration de VLANs et switchs Cisco, automatisation de sauvegardes via scripts Bash/Python et gestion de la sécurité du réseau local.
-        </p>
-        <a href="parcours.html" class="link-red">Voir mes missions détaillées →</a>
-      </div>
+    <!-- Section A propos -->
+    <section class="cyber-card">
+      <div class="card-icon">👤</div>
+      <h2>À propos de moi</h2>
+      <p>
+        Formé aux exigences du terrain informatique, je maîtrise le déploiement de services réseau critiques (DNS, DHCP, Active Directory), le suivi d'incidents et le scripting d'automatisation. Rigoureux et curieux, je prépare une spécialisation en cybersécurité.
+      </p>
+      <a href="parcours.html" class="btn-card">Découvrir mon profil complet →</a>
     </section>
 
-    <section class="quick-skills cyber-card">
-      <h3>Compétences clés</h3>
-      <div class="pills-container">
-        <span class="pill">Linux Debian</span>
-        <span class="pill">Windows Server</span>
-        <span class="pill">Cisco IOS</span>
-        <span class="pill">Wireshark</span>
-        <span class="pill">Python &amp; Bash</span>
-        <span class="pill">Sécurisation Netfilter</span>
-        <span class="pill">Active Directory</span>
-      </div>
-      <a href="competences.html" class="link-red" style="margin-top: 15px; display: inline-block;">Voir tous les projets &amp; compétences →</a>
+    <!-- Section Expérience Clé -->
+    <section class="cyber-card">
+      <div class="card-icon">🛡️</div>
+      <h2>Technicien Réseau — TechData</h2>
+      <p>
+        Intervention directe sur l'infrastructure : configuration de VLANs et switchs Cisco, automatisation de sauvegardes via scripts Bash/Python et gestion de la sécurité du réseau local.
+      </p>
+      <a href="parcours.html" class="btn-card">Voir mes missions détaillées →</a>
+    </section>
+
+    <!-- Section Compétences Clés -->
+    <section class="cyber-card">
+      <div class="card-icon">⚡</div>
+      <h2>Compétences clés</h2>
+      <ul class="styled-list">
+        <li>Linux Debian &amp; Windows Server</li>
+        <li>Cisco IOS &amp; Wireshark</li>
+        <li>Python &amp; Bash Scripting</li>
+        <li>Sécurisation Netfilter &amp; Active Directory</li>
+      </ul>
+      <a href="competences.html" class="btn-card">Voir tous les projets &amp; compétences →</a>
     </section>
 
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour <span class="red-text">Portfolio For U</span></p>
+    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
   <script src="script.js"></script>
