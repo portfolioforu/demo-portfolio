@@ -3,77 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testeur Dupuis — Parcours &amp; Expériences</title>
+  <title>Testeur Dupuis — Parcours</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="index.html" class="logo-block">
-      <span class="logo-name">TESTEUR DUPUIS</span>
-      <span class="logo-tag">// PORTFOLIO SISR</span>
-    </a>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="parcours.html">Parcours</a></li>
-      <li><a href="competences.html">Compétences &amp; Projets</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="index.html" class="logo-block">
+        <span class="logo-name">TESTEUR DUPUIS</span>
+        <span class="logo-tag">// PORTFOLIO SISR</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html" class="active">Parcours</a></li>
+        <li><a href="competences.html">Compétences &amp; Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
     <h1 class="page-title">Mon Parcours Professionnel &amp; Scolaire</h1>
     
+    <div class="section-spacer"></div>
+
     <div class="timeline">
       
-      <div class="cyber-card timeline-item">
-        <div class="card-header">
-          <h3>Stage Technicien Réseau &amp; Infrastructure</h3>
-          <span class="date-badge">8 semaines (2025)</span>
-        </div>
-        <span class="company">TechData — Entreprise de services numériques</span>
+      <div class="cyber-card">
+        <div class="card-icon">💼</div>
+        <h2>Stage Technicien Réseau &amp; Infrastructure</h2>
+        <p class="company">TechData — 8 semaines (2025)</p>
         <p>Participation active à la maintenance et à la sécurisation du parc informatique :</p>
         <ul class="styled-list">
-          <li><strong>Brassage &amp; Commutation :</strong> Installation, repérage et configuration de commutateurs Cisco IOS (VLANs, Spanning-Tree, Sécurité des ports).</li>
-          <li><strong>Scripting &amp; Automatisation :</strong> Écriture de scripts Bash et Python pour automatiser les sauvegardes système et la remontée de logs.</li>
-          <li><strong>Support &amp; Incidents :</strong> Traitement des tickets de niveau 1 et 2 sur le réseau local, diagnostic de pannes avec Wireshark.</li>
-          <li><strong>Documentation :</strong> Rédaction de procédures d'intervention et mise à jour du schéma réseau d'entreprise.</li>
+          <li><strong>Brassage &amp; Commutation :</strong> Installation, repérage et configuration de commutateurs Cisco IOS.</li>
+          <li><strong>Scripting &amp; Automatisation :</strong> Écriture de scripts Bash et Python pour automatiser les sauvegardes.</li>
+          <li><strong>Support &amp; Incidents :</strong> Traitement des tickets de niveau 1 et 2, diagnostic de pannes avec Wireshark.</li>
+          <li><strong>Documentation :</strong> Rédaction de procédures d'intervention et mise à jour du schéma réseau.</li>
         </ul>
       </div>
 
-      <div class="cyber-card timeline-item">
-        <div class="card-header">
-          <h3>BTS SIO — Option SISR</h3>
-          <span class="date-badge">2024 - 2026</span>
-        </div>
-        <span class="company">Services Informatiques aux Organisations</span>
+      <div class="cyber-card">
+        <div class="card-icon">🎓</div>
+        <h2>BTS SIO — Option SISR</h2>
+        <p class="company">Services Informatiques aux Organisations (2024 - 2026)</p>
         <p>Formation approfondie sur l'administration des systèmes, la conception réseau et la cybersécurité :</p>
         <ul class="styled-list">
-          <li>Administration de serveurs Linux (Debian/Ubuntu) et Windows Server (Active Directory, GPO, DNS, DHCP).</li>
-          <li>Configuration du routage dynamique, des pare-feu et des accès distants VPN (OpenVPN).</li>
+          <li>Administration de serveurs Linux (Debian) et Windows Server (Active Directory, DNS, DHCP).</li>
+          <li>Configuration du routage dynamique, des pare-feu et des accès distants VPN.</li>
           <li>Gestion des risques informatiques, mise en conformité et continuité d'activité (PCA/PRA).</li>
         </ul>
       </div>
 
-      <div class="cyber-card timeline-item">
-        <div class="card-header">
-          <h3>Baccalauréat Général</h3>
-          <span class="date-badge">2024</span>
-        </div>
-        <span class="company">Spécialités NSI (Numérique et Sciences Informatiques) &amp; Mathématiques</span>
-        <p>Bases solides en architecture matérielle, modèles réseaux (OSI/TCP-IP), bases de données relationnelles (SQL) et algorithmique avancée en Python.</p>
+      <div class="cyber-card">
+        <div class="card-icon">🏫</div>
+        <h2>Baccalauréat Général</h2>
+        <p class="company">Spécialités NSI &amp; Mathématiques (2024)</p>
+        <p>Bases solides en architecture matérielle, modèles réseaux (OSI/TCP-IP), bases de données (SQL) et Python.</p>
       </div>
 
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour <span class="red-text">Portfolio For U</span></p>
+    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
   <script src="script.js"></script>
