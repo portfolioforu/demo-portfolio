@@ -1,23 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap');
 
 :root {
-  /* Palette Violet Neon Cyber */
-  --bg-dark: #08070c;
-  --card-bg: rgba(18, 15, 28, 0.75);
-  --card-border: rgba(168, 85, 247, 0.18);
-  --card-border-hover: rgba(192, 132, 252, 0.6);
+  --bg-dark: #0b0d12;
+  --card-bg: #12151e;
+  --card-border: #1e2433;
+  --card-border-hover: #a855f7;
   
-  --purple-accent: #a855f7;
-  --purple-glow: rgba(168, 85, 247, 0.35);
-  --purple-light: #d8b4fe;
+  --purple-main: #a855f7;
+  --purple-glow: rgba(168, 85, 247, 0.3);
   
   --text-title: #ffffff;
-  --text-main: #e2e8f0;
-  --text-muted: #94a3b8;
+  --text-body: #94a3b8;
+  --text-muted: #64748b;
   
-  --font-title: 'Space Grotesk', sans-serif;
+  --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-code: 'Fira Code', monospace;
-  --font-body: 'Inter', sans-serif;
 }
 
 * {
@@ -26,40 +23,29 @@
   padding: 0;
 }
 
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  font-family: var(--font-body);
-  line-height: 1.7;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Annulation stricte du bleu natif sur TOUS les liens */
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Texture de fond avec grille et lueurs violacées */
-.cyber-grid {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: 
-    radial-gradient(circle at 15% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.06) 0%, transparent 45%),
-    linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
-  z-index: -1;
-  pointer-events: none;
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-body);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-  flex: 1;
 }
 
-/* En-tête & Navigation */
+/* Header & Nav */
 header {
-  background: rgba(12, 10, 20, 0.85);
+  background: rgba(11, 13, 18, 0.9);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--card-border);
   position: sticky;
@@ -77,173 +63,155 @@ nav {
 }
 
 .logo-block {
-  text-decoration: none;
   display: flex;
   flex-direction: column;
 }
 
 .logo-name {
-  font-family: var(--font-title);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--text-title);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
   letter-spacing: -0.3px;
 }
 
 .logo-tag {
   font-family: var(--font-code);
-  font-size: 0.68rem;
-  color: var(--purple-accent);
+  font-size: 0.65rem;
+  color: var(--purple-main);
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 nav ul {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   list-style: none;
-  align-items: center;
 }
 
 nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-family: var(--font-code);
-  font-size: 0.85rem;
-  transition: all 0.25s ease;
+  color: var(--text-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 nav a:hover, nav a.active {
-  color: var(--purple-light);
-  text-shadow: 0 0 10px var(--purple-glow);
+  color: #fff;
 }
 
-/* Effets sur les Cartes */
+/* CARTE STYLE DE TA CAPTURE */
 .cyber-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 28px;
-  margin-bottom: 22px;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Ligne lumineuse au survol de la carte */
-.cyber-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--purple-accent), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .cyber-card:hover {
-  transform: translateY(-4px);
   border-color: var(--card-border-hover);
-  box-shadow: 0 12px 30px -10px rgba(168, 85, 247, 0.2);
-}
-
-.cyber-card:hover::before {
-  opacity: 1;
-}
-
-/* Titres & Typographie */
-h1, h2, h3 {
-  font-family: var(--font-title);
-  color: var(--text-title);
-}
-
-.page-title {
-  font-size: 2rem;
-  margin-bottom: 25px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--card-border);
-  position: relative;
-}
-
-.page-title::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; left: 0; width: 80px; height: 2px;
-  background: var(--purple-accent);
-  box-shadow: 0 0 8px var(--purple-accent);
-}
-
-p {
-  color: var(--text-main);
-  font-size: 0.98rem;
-  margin-bottom: 12px;
-}
-
-/* Badges & Tags */
-.tag-purple {
-  font-family: var(--font-code);
-  font-size: 0.75rem;
-  color: var(--purple-light);
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  padding: 3px 10px;
-  border-radius: 6px;
-  display: inline-block;
-}
-
-/* Boutons Stylisés */
-.btn-cyber {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, var(--purple-accent) 0%, #6b21a8 100%);
-  color: #ffffff !important;
-  font-family: var(--font-code);
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  border: 1px solid rgba(216, 180, 254, 0.4);
-  box-shadow: 0 4px 15px var(--purple-glow);
-  transition: all 0.25s ease;
-}
-
-.btn-cyber:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
-  border-color: #ffffff;
 }
 
-/* Puces de listes */
-.styled-bullets {
+/* Icône en haut à gauche */
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-main);
+  font-size: 1.2rem;
+}
+
+/* Titre imposant comme sur ton image */
+.cyber-card h2, .cyber-card h3 {
+  color: var(--text-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+}
+
+/* Description */
+.cyber-card p {
+  color: var(--text-body);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Puces colorées bien alignées */
+.styled-list {
   list-style: none;
-  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 8px 0;
 }
 
-.styled-bullets li {
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--text-main);
-  font-size: 0.93rem;
+.styled-list li {
+  color: var(--text-body);
+  font-size: 0.95rem;
+  font-weight: 500;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
 }
 
-.styled-bullets li::before {
-  content: "▹";
-  color: var(--purple-accent);
-  font-family: var(--font-code);
-  font-weight: bold;
+.styled-list li::before {
+  content: "•";
+  color: var(--purple-main);
+  font-size: 1.4rem;
+  line-height: 1;
 }
 
-/* Footer */
+/* Bouton pleine largeur comme la capture */
+.btn-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-title) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-card:hover {
+  border-color: var(--purple-main);
+  background: rgba(168, 85, 247, 0.08);
+  box-shadow: 0 0 15px var(--purple-glow);
+}
+
+/* Grilles pour projets */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 650px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
 footer {
   text-align: center;
-  padding: 25px;
+  padding: 30px;
   border-top: 1px solid var(--card-border);
   color: var(--text-muted);
-  font-family: var(--font-code);
-  font-size: 0.8rem;
-  background: rgba(8, 7, 12, 0.95);
+  font-size: 0.85rem;
 }
