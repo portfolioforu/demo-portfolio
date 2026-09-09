@@ -3,65 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testeur Dupuis — Script de Sauvegarde</title>
+  <title>Testeur Dupuis — Projet : Script de Sauvegarde</title>
+  <meta name="description" content="Script d'automatisation de sauvegarde système avec compression, chiffrement et contrôle d'intégrité SHA-256.">
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
     <nav>
       <a href="index.html" class="logo-block">
-        <span class="logo-name">TESTEUR DUPUIS</span>
-        <span class="logo-tag">// PORTFOLIO SISR</span>
+        <span class="logo-dot"></span>
+        <span class="logo-name">Testeur Dupuis</span>
       </a>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="parcours.html">Parcours</a></li>
         <li><a href="competences.html" class="active">Compétences &amp; Projets</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <a href="competences.html" class="btn-card inline-btn">← Retour aux projets</a>
-    
-    <div class="section-spacer-sm"></div>
+    <a href="competences.html" class="back-link" style="margin-top: 32px;">← Retour aux projets</a>
 
-    <h1 class="page-title">Script d'Automatisation de Sauvegarde Système</h1>
-    
-    <div class="cyber-card">
-      <div class="project-meta">
+    <h1 class="page-title" style="margin-top: 14px;">Script d'automatisation de sauvegarde système</h1>
+
+    <div class="card project-body">
+      <div class="project-meta-row">
         <div><strong>Technologies :</strong> Python 3, Bash, Crontab, SHA-256</div>
         <div><strong>Contexte :</strong> Mission de stage chez TechData</div>
       </div>
-
-      <div class="section-spacer-sm"></div>
 
       <h2>1. Problématique initiale</h2>
       <p>L'entreprise manquait d'une solution centralisée et légère pour effectuer des sauvegardes régulières des fichiers de configuration réseau et des bases de données sans impacter la bande passante durant les heures de travail.</p>
 
       <h2>2. Fonctionnalités développées</h2>
       <ul class="styled-list">
-        <li><strong><span class="nobr">Extraction automatique :</span></strong> Récupération quotidienne des répertoires cibles (`/etc`, `/var/www`, bases SQL).</li>
-        <li><strong><span class="nobr">Compression &amp; Archivage :</span></strong> Création d'archives horodatées au format `.tar.gz`.</li>
-        <li><strong><span class="nobr">Contrôle d'intégrité :</span></strong> Calcul de l'empreinte SHA-256 de chaque archive pour détecter toute altération.</li>
-        <li><strong><span class="nobr">Rétention glissante :</span></strong> Suppression automatique des archives de plus de 30 jours pour préserver l'espace disque.</li>
-        <li><strong><span class="nobr">Alerte Mail :</span></strong> Envoi automatique d'un rapport d'exécution (succès ou erreur) à l'administrateur système.</li>
+        <li><strong>Extraction automatique :</strong> récupération quotidienne des répertoires cibles (/etc, /var/www, bases SQL).</li>
+        <li><strong>Compression &amp; archivage :</strong> création d'archives horodatées au format .tar.gz.</li>
+        <li><strong>Contrôle d'intégrité :</strong> calcul de l'empreinte SHA-256 de chaque archive pour détecter toute altération.</li>
+        <li><strong>Rétention glissante :</strong> suppression automatique des archives de plus de 30 jours pour préserver l'espace disque.</li>
+        <li><strong>Alerte mail :</strong> envoi automatique d'un rapport d'exécution (succès ou erreur) à l'administrateur système.</li>
       </ul>
 
       <h2>3. Déploiement</h2>
-      <p>Le script a été intégré dans la `crontab` du serveur principal pour une exécution nocturne à 02h00. Il tourne actuellement en production sans interruption.</p>
+      <p>Le script a été intégré dans la crontab du serveur principal pour une exécution nocturne à 02h00. Il tourne actuellement en production sans interruption.</p>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
+    <p>© 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
