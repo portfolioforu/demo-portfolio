@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testeur Dupuis — Projet : Déploiement Active Directory &amp; GPO</title>
+  <meta name="description" content="Déploiement d'un domaine Active Directory avec stratégies de groupe pour sécuriser un parc de postes clients.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo-block">
+        <span class="logo-dot"></span>
+        <span class="logo-name">Testeur Dupuis</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html" class="active">Compétences &amp; Projets</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="competences.html" class="back-link" style="margin-top: 32px;">← Retour aux projets</a>
+
+    <h1 class="page-title" style="margin-top: 14px;">Déploiement d'un domaine Active Directory &amp; stratégies de groupe</h1>
+
+    <div class="card project-body">
+      <div class="project-meta-row">
+        <div><strong>Technologies :</strong> Windows Server 2022, Active Directory, GPO, DNS</div>
+        <div><strong>Contexte :</strong> Projet académique BTS SIO / E5</div>
+      </div>
+
+      <h2>1. Objectif du projet</h2>
+      <p>Structurer un parc informatique hétérogène autour d'un annuaire centralisé, afin de simplifier la gestion des comptes utilisateurs et d'appliquer des règles de sécurité homogènes sur l'ensemble des postes clients.</p>
+
+      <h2>2. Réalisations techniques</h2>
+      <ul class="styled-list">
+        <li><strong>Installation du rôle AD DS :</strong> promotion d'un serveur Windows Server 2022 en contrôleur de domaine, avec zone DNS intégrée.</li>
+        <li><strong>Structure de l'annuaire :</strong> création d'unités d'organisation (OU) par service, groupes de sécurité et comptes utilisateurs.</li>
+        <li><strong>Stratégies de groupe (GPO) :</strong> verrouillage automatique des sessions, restriction de l'exécutable de contrôle de panneau, déploiement d'imprimantes réseau.</li>
+        <li><strong>Politique de mots de passe :</strong> complexité renforcée, expiration à 90 jours, verrouillage après 5 tentatives infructueuses.</li>
+        <li><strong>Jonction des postes clients :</strong> intégration au domaine et vérification de l'application des stratégies via <span style="font-family: var(--font-mono);">gpresult</span>.</li>
+      </ul>
+
+      <h2>3. Résultat &amp; compétences acquises</h2>
+      <p>L'ensemble des postes du parc applique désormais les mêmes règles de sécurité sans intervention manuelle. La gestion des accès et des droits est centralisée, ce qui réduit fortement le temps d'administration au quotidien.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
+  </footer>
+
+</body>
+</html>
