@@ -4,62 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testeur Dupuis — Projet : Serveur Web Sécurisé</title>
+  <meta name="description" content="Déploiement et sécurisation d'un serveur web Debian avec Nginx, Netfilter, Fail2ban et SSL/TLS.">
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="index.html" class="logo-block">
-      <span class="logo-name">TESTEUR DUPUIS</span>
-      <span class="logo-tag">// PORTFOLIO SISR</span>
-    </a>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="parcours.html">Parcours</a></li>
-      <li><a href="competences.html">Compétences &amp; Projets</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="index.html" class="logo-block">
+        <span class="logo-dot"></span>
+        <span class="logo-name">Testeur Dupuis</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html" class="active">Compétences &amp; Projets</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
-    <a href="competences.html" class="link-red">← Retour aux projets</a>
-    
-    <h1 class="page-title" style="margin-top: 15px;">Déploiement &amp; Sécurisation d'un Serveur Web Debian</h1>
-    
-    <div class="project-detail-box cyber-card">
-      <div class="project-meta">
+    <a href="competences.html" class="back-link" style="margin-top: 32px;">← Retour aux projets</a>
+
+    <h1 class="page-title" style="margin-top: 14px;">Déploiement &amp; sécurisation d'un serveur web Debian</h1>
+
+    <div class="card project-body">
+      <div class="project-meta-row">
         <div><strong>Technologies :</strong> Debian 12, Nginx, Netfilter/iptables, Fail2ban, SSL/TLS</div>
         <div><strong>Contexte :</strong> Projet académique BTS SIO / E4</div>
       </div>
 
-      <hr class="divider">
-
       <h2>1. Objectif du projet</h2>
-      <p>Mettre en place une architecture Web de production capable de résister aux attaques automatisées courantes (scans de ports, brute-force SSH, injections) tout en garantissant une disponibilité optimale des services.</p>
+      <p>Mettre en place une architecture web de production capable de résister aux attaques automatisées courantes (scans de ports, brute-force SSH, injections) tout en garantissant une disponibilité optimale des services.</p>
 
       <h2>2. Réalisations techniques</h2>
       <ul class="styled-list">
-        <li><strong>Installation du système :</strong> Déploiement d'une distribution Debian 12 Minimal sans interface graphique sur machine virtuelle.</li>
-        <li><strong>Configuration du pare-feu Netfilter :</strong> Mise en place d'une politique DROP par défaut. Autorisation stricte des flux TCP 80 (HTTP), 443 (HTTPS) et 22 (SSH sur port personnalisé).</li>
-        <li><strong>Sécurisation SSH :</strong> Désactivation de la connexion du compte root, authentification obligatoire par paire de clés RSA 4096 bits.</li>
-        <li><strong>Protection Fail2ban :</strong> Configuration de règles de bannissement automatique des IP après 3 tentatives de connexion infructueuses.</li>
-        <li><strong>Certificat de chiffrement :</strong> Génération et intégration d'un certificat SSL/TLS pour forcer le HTTPS.</li>
+        <li><strong>Installation du système :</strong> déploiement d'une distribution Debian 12 Minimal sans interface graphique sur machine virtuelle.</li>
+        <li><strong>Configuration du pare-feu Netfilter :</strong> mise en place d'une politique DROP par défaut. Autorisation stricte des flux TCP 80 (HTTP), 443 (HTTPS) et 22 (SSH sur port personnalisé).</li>
+        <li><strong>Sécurisation SSH :</strong> désactivation de la connexion du compte root, authentification obligatoire par paire de clés RSA 4096 bits.</li>
+        <li><strong>Protection Fail2ban :</strong> configuration de règles de bannissement automatique des IP après 3 tentatives de connexion infructueuses.</li>
+        <li><strong>Certificat de chiffrement :</strong> génération et intégration d'un certificat SSL/TLS pour forcer le HTTPS.</li>
       </ul>
 
-      <h2>3. Résultat &amp; Compétences acquises</h2>
-      <p>Le serveur a été testé face à des outils d'analyse de vulnérabilités (Nmap, Nikto). Le niveau de durcissement (<em>hardening</em>) atteint permet de bloquer 100 % des tentatives d'intrusion de niveau 1.</p>
+      <h2>3. Résultat &amp; compétences acquises</h2>
+      <p>Le serveur a été testé face à des outils d'analyse de vulnérabilités (Nmap, Nikto). Le niveau de durcissement (hardening) atteint permet de bloquer 100 % des tentatives d'intrusion de niveau 1.</p>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour <span class="red-text">Portfolio For U</span></p>
+    <p>© 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
