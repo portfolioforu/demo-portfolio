@@ -32,24 +32,35 @@
 
     <div class="card project-body">
       <div class="project-meta-row">
-        <div><strong>Technologies :</strong> Windows Server 2022, Active Directory, GPO, DNS</div>
+        <div><strong>Technologies :</strong> Windows Server 2022, Active Directory, GPO, DNS, DHCP</div>
+        <div><strong>Durée :</strong> environ 3 semaines</div>
         <div><strong>Contexte :</strong> Projet académique BTS SIO / E5</div>
       </div>
 
-      <h2>1. Objectif du projet</h2>
-      <p>Structurer un parc informatique hétérogène autour d'un annuaire centralisé, afin de simplifier la gestion des comptes utilisateurs et d'appliquer des règles de sécurité homogènes sur l'ensemble des postes clients.</p>
+      <h2>1. Contexte &amp; problématique</h2>
+      <p>Le scénario de l'épreuve E5 partait d'un parc informatique fictif d'une trentaine de postes gérés de façon indépendante : chaque machine avait ses propres comptes locaux, aucune politique de mot de passe commune, et l'installation d'imprimantes ou de logiciels se faisait poste par poste. Cette situation posait un problème de sécurité évident (mots de passe faibles, comptes orphelins) et un problème d'efficacité (temps perdu à répéter les mêmes configurations).</p>
 
-      <h2>2. Réalisations techniques</h2>
+      <h2>2. Architecture mise en place</h2>
+      <p>Un serveur Windows Server 2022 a été promu contrôleur de domaine, avec le service DNS intégré pour la résolution de noms interne, condition indispensable au bon fonctionnement d'Active Directory. L'annuaire a été structuré en unités d'organisation reflétant les services de l'entreprise fictive, chacune recevant ses propres stratégies de groupe pour permettre une granularité fine sans dupliquer les règles communes.</p>
+
+      <h2>3. Étapes de réalisation</h2>
       <ul class="styled-list">
-        <li><strong>Installation du rôle AD DS :</strong> promotion d'un serveur Windows Server 2022 en contrôleur de domaine, avec zone DNS intégrée.</li>
-        <li><strong>Structure de l'annuaire :</strong> création d'unités d'organisation (OU) par service, groupes de sécurité et comptes utilisateurs.</li>
-        <li><strong>Stratégies de groupe (GPO) :</strong> verrouillage automatique des sessions, restriction de l'exécutable de contrôle de panneau, déploiement d'imprimantes réseau.</li>
-        <li><strong>Politique de mots de passe :</strong> complexité renforcée, expiration à 90 jours, verrouillage après 5 tentatives infructueuses.</li>
-        <li><strong>Jonction des postes clients :</strong> intégration au domaine et vérification de l'application des stratégies via <span style="font-family: var(--font-mono);">gpresult</span>.</li>
+        <li><strong>Installation du rôle AD DS :</strong> promotion du serveur en contrôleur de domaine, configuration de la zone DNS intégrée à l'annuaire, vérification de la réplication et de la résolution de noms avant toute étape suivante.</li>
+        <li><strong>Structure de l'annuaire :</strong> création d'unités d'organisation (OU) par service, avec des sous-OU distinguant postes et utilisateurs pour faciliter l'application ciblée des stratégies. Création des groupes de sécurité et des comptes utilisateurs avec convention de nommage documentée.</li>
+        <li><strong>Stratégies de groupe (GPO) :</strong> verrouillage automatique des sessions après une période d'inactivité, restriction de l'accès au panneau de configuration pour les comptes utilisateurs standards, déploiement automatique d'imprimantes réseau par service via GPO plutôt que par installation manuelle.</li>
+        <li><strong>Politique de mots de passe :</strong> complexité renforcée (majuscules, chiffres, caractères spéciaux), expiration à 90 jours, verrouillage du compte après 5 tentatives infructueuses avec réinitialisation automatique du compteur après 30 minutes.</li>
+        <li><strong>Jonction des postes clients :</strong> intégration au domaine poste par poste, vérification systématique de l'application des stratégies via la commande <span style="font-family: var(--font-mono);">gpresult /r</span> pour détecter d'éventuels conflits d'héritage entre OU.</li>
+        <li><strong>Documentation :</strong> rédaction d'un schéma de l'annuaire et d'une procédure de création de compte, pour qu'un autre administrateur puisse reprendre la gestion du domaine sans connaissance préalable des choix effectués.</li>
       </ul>
 
-      <h2>3. Résultat &amp; compétences acquises</h2>
-      <p>L'ensemble des postes du parc applique désormais les mêmes règles de sécurité sans intervention manuelle. La gestion des accès et des droits est centralisée, ce qui réduit fortement le temps d'administration au quotidien.</p>
+      <h2>4. Difficultés rencontrées</h2>
+      <p>La difficulté principale a été de gérer l'héritage des stratégies de groupe entre unités d'organisation imbriquées : une GPO appliquée au niveau racine du domaine pouvait être écrasée ou fusionnée de façon inattendue par une GPO plus spécifique. Il a fallu utiliser l'outil de modélisation de stratégie de groupe pour visualiser le résultat effectif avant application, plutôt que de le découvrir a posteriori sur les postes clients.</p>
+
+      <h2>5. Tests &amp; validation</h2>
+      <p>Chaque GPO a été testée sur un poste de validation avant déploiement sur l'ensemble du parc simulé, afin d'éviter qu'une erreur de configuration ne bloque plusieurs postes simultanément. La politique de mots de passe a été vérifiée en tentant volontairement des mots de passe non conformes, et le verrouillage de compte a été testé avec des tentatives de connexion délibérément erronées.</p>
+
+      <h2>6. Résultat &amp; compétences acquises</h2>
+      <p>L'ensemble des postes du parc applique désormais les mêmes règles de sécurité sans intervention manuelle poste par poste, et la création d'un nouvel utilisateur ou l'ajout d'un nouveau poste suit une procédure standardisée de quelques minutes contre une configuration manuelle complète auparavant. Ce projet a permis d'appréhender concrètement la logique d'héritage des GPO, la conception d'une arborescence d'annuaire cohérente avec l'organisation réelle d'une structure, et l'importance de documenter les choix d'administration pour la continuité du service.</p>
     </div>
   </main>
 
