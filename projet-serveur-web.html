@@ -32,24 +32,36 @@
 
     <div class="card project-body">
       <div class="project-meta-row">
-        <div><strong>Technologies :</strong> Debian 12, Nginx, Netfilter/iptables, Fail2ban, SSL/TLS</div>
+        <div><strong>Technologies :</strong> Debian 12, Nginx, Netfilter/iptables, Fail2ban, SSL/TLS, Let's Encrypt</div>
+        <div><strong>Durée :</strong> environ 3 semaines</div>
         <div><strong>Contexte :</strong> Projet académique BTS SIO / E4</div>
       </div>
 
-      <h2>1. Objectif du projet</h2>
-      <p>Mettre en place une architecture web de production capable de résister aux attaques automatisées courantes (scans de ports, brute-force SSH, injections) tout en garantissant une disponibilité optimale des services.</p>
+      <h2>1. Contexte &amp; problématique</h2>
+      <p>Dans le cadre de l'épreuve E4 du BTS SIO, l'objectif était de concevoir de bout en bout une infrastructure web capable d'être exposée sur Internet sans compromettre la sécurité du système. Les serveurs web mal configurés sont une cible privilégiée des scans automatisés : ports ouverts inutilement, comptes root accessibles en SSH, absence de chiffrement. Le cahier des charges imposait de repartir d'un système vierge plutôt que d'une image préconfigurée, afin de maîtriser chaque brique installée.</p>
 
-      <h2>2. Réalisations techniques</h2>
+      <h2>2. Architecture mise en place</h2>
+      <p>Le serveur repose sur une machine virtuelle Debian 12 en édition Minimal, sans interface graphique, pour réduire la surface d'attaque et la consommation de ressources. Nginx sert de serveur web frontal, avec un unique reverse proxy exposé publiquement. Le pare-feu Netfilter filtre l'intégralité du trafic entrant et sortant avant même qu'il n'atteigne les services applicatifs.</p>
+
+      <h2>3. Étapes de réalisation</h2>
       <ul class="styled-list">
-        <li><strong>Installation du système :</strong> déploiement d'une distribution Debian 12 Minimal sans interface graphique sur machine virtuelle.</li>
-        <li><strong>Configuration du pare-feu Netfilter :</strong> mise en place d'une politique DROP par défaut. Autorisation stricte des flux TCP 80 (HTTP), 443 (HTTPS) et 22 (SSH sur port personnalisé).</li>
-        <li><strong>Sécurisation SSH :</strong> désactivation de la connexion du compte root, authentification obligatoire par paire de clés RSA 4096 bits.</li>
-        <li><strong>Protection Fail2ban :</strong> configuration de règles de bannissement automatique des IP après 3 tentatives de connexion infructueuses.</li>
-        <li><strong>Certificat de chiffrement :</strong> génération et intégration d'un certificat SSL/TLS pour forcer le HTTPS.</li>
+        <li><strong>Installation du système :</strong> déploiement d'une Debian 12 Minimal sur machine virtuelle, partitionnement manuel, création d'un compte administrateur non-root dès l'installation.</li>
+        <li><strong>Mise à jour &amp; durcissement de base :</strong> mise à jour complète des paquets, désactivation des services non nécessaires, configuration du fuseau horaire et de la synchronisation NTP pour des logs exploitables.</li>
+        <li><strong>Configuration du pare-feu Netfilter :</strong> écriture de règles iptables avec politique DROP par défaut sur les chaînes INPUT et FORWARD. Autorisation explicite des flux TCP 80 (HTTP), 443 (HTTPS) et du port SSH personnalisé, avec sauvegarde des règles au démarrage via iptables-persistent.</li>
+        <li><strong>Sécurisation SSH :</strong> changement du port par défaut, désactivation de la connexion directe au compte root (PermitRootLogin no), authentification exclusivement par paire de clés RSA 4096 bits, désactivation de l'authentification par mot de passe.</li>
+        <li><strong>Installation &amp; configuration de Nginx :</strong> mise en place des blocs serveur, configuration des en-têtes de sécurité (X-Frame-Options, X-Content-Type-Options), désactivation de l'affichage de la version du serveur.</li>
+        <li><strong>Protection Fail2ban :</strong> configuration d'une jail dédiée à SSH avec bannissement automatique après 3 tentatives infructueuses sur une fenêtre de 10 minutes, durée de bannissement progressive en cas de récidive.</li>
+        <li><strong>Chiffrement SSL/TLS :</strong> génération d'un certificat, configuration de Nginx pour rediriger systématiquement le trafic HTTP vers HTTPS, désactivation des protocoles TLS obsolètes (TLS 1.0 et 1.1).</li>
       </ul>
 
-      <h2>3. Résultat &amp; compétences acquises</h2>
-      <p>Le serveur a été testé face à des outils d'analyse de vulnérabilités (Nmap, Nikto). Le niveau de durcissement (hardening) atteint permet de bloquer 100 % des tentatives d'intrusion de niveau 1.</p>
+      <h2>4. Difficultés rencontrées</h2>
+      <p>La principale difficulté a été de calibrer les règles Fail2ban sans provoquer de faux positifs lors des phases de test, où de nombreuses connexions légitimes échouaient à cause d'erreurs de configuration côté client. Le second point délicat a concerné la persistance des règles Netfilter au redémarrage, qui nécessitait un service dédié plutôt qu'un simple script.</p>
+
+      <h2>5. Tests &amp; validation</h2>
+      <p>Le serveur a été testé face à des outils d'analyse de vulnérabilités (Nmap pour le scan de ports, Nikto pour l'analyse des failles web courantes). Seuls les ports strictement nécessaires apparaissent ouverts lors d'un scan externe. Des tentatives de connexion SSH par force brute simulées ont été bloquées après le seuil configuré, confirmant le bon fonctionnement de Fail2ban.</p>
+
+      <h2>6. Résultat &amp; compétences acquises</h2>
+      <p>Le niveau de durcissement (hardening) atteint permet de bloquer 100 % des tentatives d'intrusion de niveau 1 lors des tests. Ce projet a permis de comprendre en profondeur le fonctionnement d'un pare-feu Linux au niveau des règles, au-delà de la simple configuration d'une interface graphique, ainsi que l'articulation entre plusieurs couches de sécurité complémentaires (réseau, authentification, chiffrement, détection d'intrusion).</p>
     </div>
   </main>
 
