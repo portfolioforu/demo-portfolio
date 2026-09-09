@@ -32,24 +32,35 @@
 
     <div class="card project-body">
       <div class="project-meta-row">
-        <div><strong>Technologies :</strong> Python 3, Bash, Crontab, SHA-256</div>
+        <div><strong>Technologies :</strong> Python 3, Bash, Crontab, SHA-256, sendmail</div>
+        <div><strong>Durée :</strong> 2 semaines de développement, en production depuis</div>
         <div><strong>Contexte :</strong> Mission de stage chez TechData</div>
       </div>
 
       <h2>1. Problématique initiale</h2>
-      <p>L'entreprise manquait d'une solution centralisée et légère pour effectuer des sauvegardes régulières des fichiers de configuration réseau et des bases de données sans impacter la bande passante durant les heures de travail.</p>
+      <p>L'entreprise manquait d'une solution centralisée et légère pour effectuer des sauvegardes régulières des fichiers de configuration réseau et des bases de données. Les sauvegardes existantes étaient déclenchées manuellement par les techniciens, de façon irrégulière, sans vérification de leur intégrité ni traçabilité en cas d'échec. Le besoin exprimé était un outil autonome, capable de tourner sans surveillance humaine et sans impacter la bande passante durant les heures de travail.</p>
 
-      <h2>2. Fonctionnalités développées</h2>
+      <h2>2. Analyse &amp; choix techniques</h2>
+      <p>Python a été choisi pour la logique métier (sélection des répertoires, calcul d'empreintes, gestion des erreurs) pour sa lisibilité et sa gestion native des exceptions, complété par des appels Bash pour les opérations système bas niveau (compression, permissions). Crontab a été retenu plutôt qu'un service dédié pour sa simplicité de maintenance par une petite équipe technique.</p>
+
+      <h2>3. Fonctionnalités développées</h2>
       <ul class="styled-list">
-        <li><strong>Extraction automatique :</strong> récupération quotidienne des répertoires cibles (/etc, /var/www, bases SQL).</li>
-        <li><strong>Compression &amp; archivage :</strong> création d'archives horodatées au format .tar.gz.</li>
-        <li><strong>Contrôle d'intégrité :</strong> calcul de l'empreinte SHA-256 de chaque archive pour détecter toute altération.</li>
-        <li><strong>Rétention glissante :</strong> suppression automatique des archives de plus de 30 jours pour préserver l'espace disque.</li>
-        <li><strong>Alerte mail :</strong> envoi automatique d'un rapport d'exécution (succès ou erreur) à l'administrateur système.</li>
+        <li><strong>Extraction automatique :</strong> récupération quotidienne des répertoires cibles (/etc, /var/www, bases SQL) via une liste de chemins configurable dans un fichier séparé, pour éviter de modifier le script à chaque ajustement du périmètre.</li>
+        <li><strong>Compression &amp; archivage :</strong> création d'archives horodatées au format .tar.gz, avec un nommage incluant la date et l'heure pour éviter tout écrasement accidentel.</li>
+        <li><strong>Contrôle d'intégrité :</strong> calcul de l'empreinte SHA-256 de chaque archive immédiatement après création, stockée dans un fichier de contrôle séparé pour détecter toute altération ultérieure du fichier.</li>
+        <li><strong>Rétention glissante :</strong> suppression automatique des archives de plus de 30 jours pour préserver l'espace disque, avec conservation systématique de la dernière sauvegarde même si elle dépasse ce délai.</li>
+        <li><strong>Gestion des erreurs :</strong> chaque étape (extraction, compression, calcul d'empreinte) est encadrée par une gestion d'exception qui interrompt proprement le script et consigne la cause exacte de l'échec dans un fichier de log dédié.</li>
+        <li><strong>Alerte mail :</strong> envoi automatique d'un rapport d'exécution à l'administrateur système, résumant les fichiers sauvegardés, la taille de l'archive générée et un statut clair (succès ou erreur avec détail).</li>
       </ul>
 
-      <h2>3. Déploiement</h2>
-      <p>Le script a été intégré dans la crontab du serveur principal pour une exécution nocturne à 02h00. Il tourne actuellement en production sans interruption.</p>
+      <h2>4. Difficultés rencontrées</h2>
+      <p>Le principal défi a été de garantir que le script ne s'exécute jamais partiellement de façon silencieuse : une compression interrompue en cours de route aurait pu laisser une archive corrompue perçue comme valide. La solution a consisté à écrire l'archive dans un répertoire temporaire et à ne la déplacer vers son emplacement final qu'une fois le contrôle d'intégrité validé.</p>
+
+      <h2>5. Déploiement &amp; suivi</h2>
+      <p>Le script a été intégré dans la crontab du serveur principal pour une exécution nocturne à 02h00, en dehors des heures de forte activité réseau. Il tourne actuellement en production sans interruption depuis sa mise en place, avec un historique de rapports mail permettant de vérifier a posteriori qu'aucune sauvegarde n'a été manquée.</p>
+
+      <h2>6. Résultat &amp; compétences acquises</h2>
+      <p>Ce projet a permis de passer d'une pratique manuelle et irrégulière à un processus fiable et traçable, sans charge de maintenance pour l'équipe. Il a été l'occasion de manipuler en profondeur la gestion d'erreurs en Python, l'articulation entre scripts Python et commandes système, et la conception d'un outil pensé pour fonctionner sans surveillance humaine.</p>
     </div>
   </main>
 
