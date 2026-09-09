@@ -4,55 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testeur Dupuis — Parcours</title>
+  <meta name="description" content="Parcours scolaire et professionnel de Testeur Dupuis : BTS SIO SISR, stage technicien réseau, baccalauréat NSI.">
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
     <nav>
       <a href="index.html" class="logo-block">
-        <span class="logo-name">TESTEUR DUPUIS</span>
-        <span class="logo-tag">// PORTFOLIO SISR</span>
+        <span class="logo-dot"></span>
+        <span class="logo-name">Testeur Dupuis</span>
       </a>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="parcours.html" class="active">Parcours</a></li>
         <li><a href="competences.html">Compétences &amp; Projets</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <h1 class="page-title">Mon Parcours Professionnel &amp; Scolaire</h1>
-    
-    <!-- Bouton CV intégré en haut du parcours -->
-    <div style="margin-bottom: 25px;">
-      <a href="Cv_Cattin_Nathan.pdf" target="_blank" class="btn-cyber">Télécharger mon CV au format PDF 📄</a>
+    <h1 class="page-title">Parcours professionnel &amp; scolaire</h1>
+    <p class="page-subtitle">Formation et expérience de terrain, dans l'ordre chronologique inverse.</p>
+
+    <div style="margin: 24px 0 8px;">
+      <a href="Cv_Cattin_Nathan.pdf" target="_blank" class="btn btn-outline">Télécharger le CV (PDF)</a>
     </div>
 
     <div class="timeline">
-      
-      <div class="cyber-card">
-        <div class="card-icon">💼</div>
-        <h2>Stage Technicien Réseau &amp; Infrastructure</h2>
-        <p class="company">TechData — 8 semaines (2025)</p>
+
+      <div class="timeline-item">
+        <span class="timeline-date">2025 — 8 semaines</span>
+        <h3>Stage technicien réseau &amp; infrastructure</h3>
+        <p class="timeline-org">TechData</p>
         <p>Participation active à la maintenance et à la sécurisation du parc informatique :</p>
         <ul class="styled-list">
-          <li><strong>Brassage &amp; Commutation :</strong> Installation, repérage et configuration de commutateurs Cisco IOS.</li>
-          <li><strong>Scripting &amp; Automatisation :</strong> Écriture de scripts Bash et Python pour automatiser les sauvegardes.</li>
-          <li><strong>Support &amp; Incidents :</strong> Traitement des tickets de niveau 1 et 2, diagnostic de pannes avec Wireshark.</li>
-          <li><strong>Documentation :</strong> Rédaction de procédures d'intervention et mise à jour du schéma réseau.</li>
+          <li><strong>Brassage &amp; commutation :</strong> installation et configuration de commutateurs Cisco IOS.</li>
+          <li><strong>Scripting &amp; automatisation :</strong> écriture de scripts Bash et Python pour automatiser les sauvegardes.</li>
+          <li><strong>Support &amp; incidents :</strong> traitement des tickets de niveau 1 et 2, diagnostic de pannes avec Wireshark.</li>
+          <li><strong>Documentation :</strong> rédaction de procédures d'intervention et mise à jour du schéma réseau.</li>
         </ul>
       </div>
 
-      <div class="cyber-card">
-        <div class="card-icon">🎓</div>
-        <h2>BTS SIO — Option SISR</h2>
-        <p class="company">Services Informatiques aux Organisations (2024 - 2026)</p>
+      <div class="timeline-item">
+        <span class="timeline-date">2024 — 2026</span>
+        <h3>BTS SIO — Option SISR</h3>
+        <p class="timeline-org">Services Informatiques aux Organisations</p>
         <p>Formation approfondie sur l'administration des systèmes, la conception réseau et la cybersécurité :</p>
         <ul class="styled-list">
           <li>Administration de serveurs Linux (Debian) et Windows Server (Active Directory, DNS, DHCP).</li>
@@ -61,10 +60,10 @@
         </ul>
       </div>
 
-      <div class="cyber-card">
-        <div class="card-icon">🏫</div>
-        <h2>Baccalauréat Général</h2>
-        <p class="company">Spécialités NSI &amp; Mathématiques (2024)</p>
+      <div class="timeline-item">
+        <span class="timeline-date">2024</span>
+        <h3>Baccalauréat général</h3>
+        <p class="timeline-org">Spécialités NSI &amp; Mathématiques</p>
         <p>Bases solides en architecture matérielle, modèles réseaux (OSI/TCP-IP), bases de données (SQL) et Python.</p>
       </div>
 
@@ -72,9 +71,8 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
+    <p>© 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
