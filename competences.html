@@ -4,84 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testeur Dupuis — Compétences &amp; Projets</title>
+  <meta name="description" content="Compétences techniques et projets réalisés par Testeur Dupuis : serveur web sécurisé, script de sauvegarde, déploiement Active Directory.">
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
     <nav>
       <a href="index.html" class="logo-block">
-        <span class="logo-name">TESTEUR DUPUIS</span>
-        <span class="logo-tag">// PORTFOLIO SISR</span>
+        <span class="logo-dot"></span>
+        <span class="logo-name">Testeur Dupuis</span>
       </a>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="parcours.html">Parcours</a></li>
         <li><a href="competences.html" class="active">Compétences &amp; Projets</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <h1 class="page-title">Compétences &amp; Projets</h1>
+    <h1 class="page-title">Compétences &amp; projets</h1>
+    <p class="page-subtitle">Ce que je maîtrise, et comment je l'ai mis en pratique.</p>
 
-    <h2 class="section-subtitle">Compétences Techniques</h2>
-    <div class="section-spacer-sm"></div>
-
-    <div class="grid-2">
-      <div class="cyber-card">
-        <div class="card-icon">🖥️</div>
-        <h3>Systèmes &amp; Réseaux</h3>
-        <ul class="styled-list">
-          <li>Linux (Debian / Ubuntu Server)</li>
-          <li>Cisco IOS (Switchs, Routeurs, VLANs)</li>
-          <li>Wireshark (Analyse de trames &amp; logs)</li>
-          <li>Pare-feu &amp; Sécurité (Netfilter / iptables)</li>
-        </ul>
+    <div class="section">
+      <div class="section-head">
+        <h2>Compétences techniques</h2>
+        <span class="section-index">01</span>
       </div>
-
-      <div class="cyber-card">
-        <div class="card-icon">⚡</div>
-        <h3>Développement &amp; Outils</h3>
-        <ul class="styled-list">
-          <li>Python (Scripts &amp; Automatisation)</li>
-          <li>Bash / Shell Linux</li>
-          <li>HTML5 / CSS3</li>
-          <li>Git &amp; GitHub</li>
-        </ul>
+      <div class="grid-2">
+        <div class="card">
+          <span class="card-eyebrow">Systèmes &amp; réseaux</span>
+          <ul class="styled-list">
+            <li>Linux (Debian / Ubuntu Server)</li>
+            <li>Windows Server (Active Directory, GPO)</li>
+            <li>Cisco IOS (switchs, routeurs, VLANs)</li>
+            <li>Wireshark (analyse de trames &amp; logs)</li>
+            <li>Pare-feu &amp; sécurité (Netfilter / iptables)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-eyebrow">Développement &amp; outils</span>
+          <ul class="styled-list">
+            <li>Python (scripts &amp; automatisation)</li>
+            <li>Bash / shell Linux</li>
+            <li>HTML5 / CSS3</li>
+            <li>Git &amp; GitHub</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="section-spacer"></div>
-
-    <h2 class="section-subtitle">Projets Réalisés</h2>
-    <div class="section-spacer-sm"></div>
-
-    <div class="grid-2">
-      <div class="cyber-card">
-        <div class="card-icon">🔒</div>
-        <h3>Serveur Web Sécurisé</h3>
-        <p>Déploiement complet d'une infrastructure Web sécurisée sous Linux Debian avec filtrage réseau strict et durcissement système.</p>
-        <a href="projet-serveur-web.html" class="btn-card">Voir les détails du projet →</a>
+    <div class="section">
+      <div class="section-head">
+        <h2>Projets réalisés</h2>
+        <span class="section-index">02</span>
       </div>
 
-      <div class="cyber-card">
-        <div class="card-icon">📦</div>
-        <h3>Script de Sauvegarde System</h3>
-        <p>Création d'une solution automatisée gérant la compression, le chiffrement et le contrôle d'intégrité des sauvegardes critiques.</p>
-        <a href="projet-script-backup.html" class="btn-card">Voir les détails du projet →</a>
+      <div class="card">
+        <span class="card-eyebrow">Réseau &amp; sécurité</span>
+        <h3>Serveur web sécurisé</h3>
+        <p>Déploiement complet d'une infrastructure web sous Linux Debian avec filtrage réseau strict et durcissement système.</p>
+        <div class="tag-row">
+          <span class="tag">Debian 12</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">Fail2ban</span>
+        </div>
+        <a href="projet-serveur-web.html" class="back-link">Voir les détails du projet →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-eyebrow">Automatisation</span>
+        <h3>Script de sauvegarde système</h3>
+        <p>Solution automatisée gérant la compression, le chiffrement et le contrôle d'intégrité des sauvegardes critiques.</p>
+        <div class="tag-row">
+          <span class="tag">Python 3</span>
+          <span class="tag">Crontab</span>
+          <span class="tag">SHA-256</span>
+        </div>
+        <a href="projet-script-backup.html" class="back-link">Voir les détails du projet →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-eyebrow">Systèmes Windows</span>
+        <h3>Déploiement Active Directory &amp; GPO</h3>
+        <p>Mise en place d'un domaine Active Directory avec stratégies de groupe pour standardiser et sécuriser un parc de postes clients.</p>
+        <div class="tag-row">
+          <span class="tag">Windows Server</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">GPO</span>
+        </div>
+        <a href="projet-active-directory.html" class="back-link">Voir les détails du projet →</a>
       </div>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
+    <p>© 2026 Testeur Dupuis — Démo réalisée pour Portfolio For U</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
