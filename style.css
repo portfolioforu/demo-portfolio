@@ -72,9 +72,9 @@ main {
 }
 
 .container {
-  max-width: 880px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 5vw, 24px) 80px;
+  padding: 0 clamp(18px, 4vw, 40px) 90px;
   width: 100%;
 }
 
@@ -98,9 +98,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 880px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 18px clamp(16px, 5vw, 24px);
+  padding: 18px clamp(18px, 4vw, 40px);
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -406,17 +406,24 @@ nav a.active {
 }
 
 .styled-list li {
-  display: flex;
-  gap: 12px;
+  position: relative;
+  padding-left: 24px;
   font-size: 0.96rem;
 }
 
 .styled-list li::before {
   content: "\203a";
+  position: absolute;
+  left: 0;
+  top: 0;
   color: var(--violet);
   font-family: var(--font-mono);
   font-weight: 700;
-  flex-shrink: 0;
+}
+
+.styled-list li strong {
+  color: var(--text-title);
+  font-weight: 600;
 }
 
 .timeline {
@@ -598,7 +605,7 @@ footer {
 
 
 /* ============================================================
-   COULEUR — accents vifs sur la base sombre
+   ACCENTS — un violet/bleu dominant, le vert reserve au statut
    ============================================================ */
 
 html {
@@ -606,40 +613,36 @@ html {
   text-size-adjust: 100%;
 }
 
-/* Halos colores discrets par-dessus la grille de fond */
+/* Deux halos discrets, dans la meme famille de teinte */
 body {
   background-image:
-    radial-gradient(760px circle at 12% -5%, rgba(124, 108, 247, 0.16), transparent 60%),
-    radial-gradient(620px circle at 92% 12%, rgba(77, 141, 255, 0.13), transparent 62%),
-    radial-gradient(680px circle at 50% 108%, rgba(52, 211, 153, 0.10), transparent 60%),
+    radial-gradient(820px circle at 10% -8%, rgba(124, 108, 247, 0.14), transparent 62%),
+    radial-gradient(680px circle at 95% 6%, rgba(77, 141, 255, 0.10), transparent 64%),
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: auto, auto, auto, 64px 64px, 64px 64px;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
+  background-size: auto, auto, 64px 64px, 64px 64px;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
 }
 
-/* Filet degrade en haut du header et du footer */
 header {
   border-top: 2px solid transparent;
-  border-image: linear-gradient(90deg, var(--violet), var(--blue) 40%, var(--green) 72%, var(--amber)) 1;
+  border-image: linear-gradient(90deg, var(--violet), var(--blue)) 1;
   border-bottom: 1px solid var(--border);
 }
 
 footer {
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(90deg, var(--violet), var(--blue) 40%, var(--green) 72%, var(--amber)) 1;
+  border-top: 1px solid var(--border);
 }
 
-/* Chiffre du hero en degrade */
+/* Le chiffre du hero : seul endroit avec un degrade */
 .hero h1 .accent-number {
   color: var(--violet);
-  background: linear-gradient(120deg, var(--violet), var(--blue) 55%, var(--green));
+  background: linear-gradient(120deg, var(--violet), var(--blue));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Boutons */
 .btn-solid {
   background: linear-gradient(120deg, var(--violet), var(--blue));
   color: #ffffff !important;
@@ -651,83 +654,144 @@ footer {
   background: var(--violet-dim);
 }
 
-/* Metriques du bloc statut : une couleur par chiffre */
-.status-metric:nth-child(1) .status-metric-value { color: var(--green); }
-.status-metric:nth-child(2) .status-metric-value { color: var(--amber); }
-.status-metric:nth-child(3) .status-metric-value { color: var(--violet); }
+/* Le vert ne sert qu'a la disponibilite */
+.logo-dot { background: var(--green); box-shadow: 0 0 8px rgba(52, 211, 153, 0.55); }
+.hero-kicker { color: var(--green); }
 
-/* Cartes : lisere colore a gauche, couleur par section */
+/* Cartes : un seul lisere, toujours violet */
 .card {
   border-left: 3px solid var(--violet);
 }
 
-section:nth-of-type(3n + 2) .card { border-left-color: var(--green); }
-section:nth-of-type(3n + 3) .card { border-left-color: var(--amber); }
-section:nth-of-type(3n + 2) .card-eyebrow { color: var(--green); }
-section:nth-of-type(3n + 3) .card-eyebrow { color: var(--amber); }
-
 .card:hover {
   border-color: var(--border-active);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  border-left-color: var(--violet);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.32);
 }
 
-/* Etiquettes colorees (au lieu du gris uniforme) */
+.card-eyebrow { color: var(--violet); }
+
+/* Etiquettes : une seule teinte, discrete */
 .tag {
-  color: var(--violet);
-  background: var(--violet-dim);
-  border-color: rgba(124, 108, 247, 0.28);
-  transition: filter 0.15s ease, border-color 0.15s ease;
+  color: #b7b0f4;
+  background: rgba(124, 108, 247, 0.10);
+  border-color: rgba(124, 108, 247, 0.22);
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.tag:nth-child(4n + 2) { color: var(--green);  background: var(--green-dim);  border-color: rgba(52, 211, 153, 0.28); }
-.tag:nth-child(4n + 3) { color: var(--amber);  background: var(--amber-dim);  border-color: rgba(240, 169, 76, 0.28); }
-.tag:nth-child(4n + 4) { color: var(--rose);   background: var(--rose-dim);   border-color: rgba(244, 114, 182, 0.28); }
-
-.tag:hover { filter: brightness(1.25); border-color: currentColor; }
-
-/* Numero de section en degrade */
-.section-index {
-  background: linear-gradient(120deg, var(--violet), var(--green));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
+.tag:hover {
+  color: #d5d0ff;
+  border-color: var(--violet);
 }
 
-/* Soulignement degrade des titres de section */
-.section-head {
-  border-bottom: 1px solid transparent;
-  border-image: linear-gradient(90deg, var(--violet), transparent 70%) 1;
+/* Chiffres cles */
+.status-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
-/* Puces de liste alternees */
-.styled-list li:nth-child(3n + 2)::before { color: var(--green); }
-.styled-list li:nth-child(3n + 3)::before { color: var(--amber); }
+.status-grid { gap: 0; }
 
-/* Timeline : trait degrade, pastilles et dates alternees */
+.status-metric-value {
+  color: var(--text-title);
+  letter-spacing: -0.02em;
+}
+
+.status-metric:nth-child(2) .status-metric-value { color: var(--violet); }
+
 .timeline::before {
   width: 2px;
   left: 4px;
-  background: linear-gradient(180deg, var(--violet), var(--blue) 45%, var(--green));
+  background: linear-gradient(180deg, var(--violet), rgba(124, 108, 247, 0.15));
 }
 
-.timeline-item:nth-child(3n + 2)::before { border-color: var(--green); }
-.timeline-item:nth-child(3n + 3)::before { border-color: var(--amber); }
-.timeline-item:nth-child(3n + 2) .timeline-date { color: var(--green); }
-.timeline-item:nth-child(3n + 3) .timeline-date { color: var(--amber); }
+.cert-card { border-left: 3px solid var(--violet); }
 
-/* Certifications */
-.cert-card { border-left: 3px solid var(--green); }
+/* ============================================================
+   LARGE — occuper la page au lieu d'une colonne au milieu
+   ============================================================ */
+
+@media (min-width: 940px) {
+  /* Hero sur deux colonnes : texte a gauche, chiffres a droite */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    column-gap: 56px;
+    align-items: start;
+    padding: 72px 0 24px;
+  }
+
+  .hero-kicker,
+  .hero h1,
+  .hero-bio,
+  .hero-actions { grid-column: 1; }
+
+  .hero-bio { max-width: 46ch; }
+
+  .hero .status-card {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: center;
+    margin-bottom: 0;
+  }
+
+  .hero .status-grid { grid-template-columns: 1fr; }
+
+  .hero .status-metric {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero .status-metric:last-child { border-bottom: none; }
+
+  /* Parcours : date a gauche, contenu a droite */
+  .timeline { padding-left: 32px; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    column-gap: 36px;
+    margin-bottom: 44px;
+  }
+
+  .timeline-date {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+    padding-top: 3px;
+  }
+
+  .timeline-item > *:not(.timeline-date) { grid-column: 2; }
+
+  /* Deux blocs cote a cote sur l'accueil */
+  .section-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .section-pair .section { margin-top: 56px; }
+
+  /* Confort de lecture malgre la largeur */
+  .project-body p,
+  .timeline-item p,
+  .card > p { max-width: 82ch; }
+}
+
+@media (min-width: 1100px) {
+  .cert-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cert-card { margin-bottom: 0; }
+}
 
 /* ============================================================
    MOBILE — le texte etait calibre pour le desktop
    ============================================================ */
 
 @media (max-width: 720px) {
-  /* le fond fixe fait sauter le rendu sur iOS */
   body { background-attachment: scroll; }
 
-  /* Navigation : une ligne defilante, cibles tactiles confortables */
   nav {
     flex-direction: column;
     align-items: flex-start;
@@ -768,7 +832,6 @@ section:nth-of-type(3n + 3) .card-eyebrow { color: var(--amber); }
   .logo-name { font-size: 1.1rem; }
   .logo-tag { font-size: 0.75rem; }
 
-  /* Corps de texte */
   body { font-size: 1.02rem; line-height: 1.7; }
   .hero-bio { font-size: 1.08rem; }
   .hero-kicker { font-size: 0.88rem; }
@@ -779,9 +842,7 @@ section:nth-of-type(3n + 3) .card-eyebrow { color: var(--amber); }
   .section-head h2 { font-size: 1.4rem; }
   .section-index { font-size: 0.85rem; }
 
-  /* Tous les petits libelles mono tombaient vers 11px */
   .tag { font-size: 0.85rem; padding: 6px 12px; }
-  .status-pill { font-size: 0.82rem; padding: 5px 12px; }
   .status-card-head span:first-child { font-size: 0.85rem; }
   .status-metric { padding: 20px 18px; }
   .status-metric-value { font-size: 2rem; }
@@ -799,10 +860,8 @@ section:nth-of-type(3n + 3) .card-eyebrow { color: var(--amber); }
   .back-link { font-size: 0.98rem; padding: 8px 0; }
   footer { font-size: 0.92rem; padding: 32px 20px; }
 
-  /* Cibles tactiles */
   .btn { font-size: 1rem; padding: 14px 24px; min-height: 48px; }
 
-  /* Respiration */
   .section { margin-top: 44px; }
   .card { padding: 22px 20px; }
 }
@@ -813,7 +872,6 @@ section:nth-of-type(3n + 3) .card-eyebrow { color: var(--amber); }
   .hero-bio { font-size: 1.06rem; }
   .page-title { font-size: clamp(1.8rem, 7vw, 2.2rem); }
   .status-metric-value { font-size: 1.9rem; }
-  .status-card-head { flex-wrap: wrap; gap: 6px; }
   .cert-card { flex-direction: column; align-items: flex-start; gap: 12px; }
   .container { padding-bottom: 56px; }
 }
