@@ -428,7 +428,7 @@ nav a.active {
 
 .timeline {
   position: relative;
-  padding-left: 28px;
+  padding-left: 30px;
   margin-top: 24px;
 }
 
@@ -450,10 +450,10 @@ nav a.active {
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -28px;
-  top: 6px;
-  width: 11px;
-  height: 11px;
+  left: -30px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--bg);
   border: 2px solid var(--violet);
@@ -630,6 +630,17 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
+/* Menu mobile : case a cocher masquee mais focalisable au clavier */
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.burger { display: none; }
+
 footer {
   border-top: 1px solid var(--border);
 }
@@ -702,7 +713,7 @@ footer {
 
 .timeline::before {
   width: 2px;
-  left: 4px;
+  left: 5px;
   background: linear-gradient(180deg, var(--violet), rgba(124, 108, 247, 0.15));
 }
 
@@ -746,7 +757,7 @@ footer {
   .hero .status-metric:last-child { border-bottom: none; }
 
   /* Parcours : date a gauche, contenu a droite */
-  .timeline { padding-left: 32px; }
+  .timeline { padding-left: 30px; }
 
   .timeline-item {
     display: grid;
@@ -796,33 +807,70 @@ footer {
   body { background-attachment: scroll; }
 
   nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px clamp(16px, 5vw, 24px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 12px clamp(16px, 5vw, 24px);
   }
 
+  .logo-block { order: 1; }
+  .burger { order: 2; }
+  nav ul { order: 3; }
+
+  /* Bouton menu */
+  .burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text-title);
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .burger::before { content: "\2630"; }
+
+  .nav-toggle:checked ~ .burger {
+    border-color: var(--violet);
+    color: var(--violet);
+  }
+
+  .nav-toggle:checked ~ .burger::before { content: "\2715"; }
+
+  .nav-toggle:focus-visible ~ .burger {
+    outline: 2px solid var(--violet);
+    outline-offset: 3px;
+  }
+
+  /* Panneau : ferme par defaut, deplie au clic */
   nav ul {
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    display: none;
     width: 100%;
-    gap: 8px;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 0 4px;
   }
 
-  nav ul::-webkit-scrollbar { display: none; }
+  .nav-toggle:checked ~ ul { display: flex; }
 
-  nav li { flex: 0 0 auto; }
+  nav li { width: 100%; }
 
   nav a {
-    font-size: 0.95rem;
-    padding: 8px 14px;
-    border-radius: 999px;
+    display: block;
+    font-size: 1rem;
+    padding: 13px 16px;
+    border-radius: 10px;
     border: 1px solid var(--border);
     background: var(--surface);
-    white-space: nowrap;
+    white-space: normal;
   }
 
   nav a.active {
