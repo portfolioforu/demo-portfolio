@@ -72,7 +72,7 @@ main {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 clamp(18px, 4vw, 40px) 90px;
   width: 100%;
@@ -98,7 +98,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 18px clamp(18px, 4vw, 40px);
   flex-wrap: wrap;
@@ -774,10 +774,13 @@ footer {
 
   .section-pair .section { margin-top: 56px; }
 
-  /* Confort de lecture malgre la largeur */
+  /* Confort de lecture : paragraphes et listes alignes sur la meme largeur */
   .project-body p,
   .timeline-item p,
-  .card > p { max-width: 82ch; }
+  .card > p,
+  .project-body .styled-list,
+  .timeline-item .styled-list,
+  .card > .styled-list { max-width: 92ch; }
 }
 
 @media (min-width: 1100px) {
