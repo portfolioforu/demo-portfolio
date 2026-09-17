@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@500&display=swap');
 
+/* Correctif : restaure la navigation mobile tant que le bouton de menu n'est pas dans les pages */
+@media (max-width: 720px) {
+  nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    gap: 8px !important;
+    padding: 10px 0 4px !important;
+  }
+
+  nav li { width: auto !important; flex: 0 0 auto !important; }
+  nav a { white-space: nowrap !important; }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@500&display=swap');
+
 :root {
   --bg: #0c0d10;
   --surface: #15171c;
