@@ -5,14 +5,19 @@
   --surface: #15171c;
   --surface-raised: #1a1d24;
   --border: #23262e;
-  --border-active: #5b8def;
+  --border-active: #7c6cf7;
 
-  --violet: #5b8def;
-  --violet-dim: rgba(91, 141, 239, 0.12);
-  --violet-glow: rgba(91, 141, 239, 0.24);
-  --green: #7c8794;
-  --green-dim: rgba(124, 135, 148, 0.14);
-  --amber: #c9975a;
+  --violet: #7c6cf7;
+  --violet-dim: rgba(124, 108, 247, 0.14);
+  --violet-glow: rgba(124, 108, 247, 0.30);
+  --blue: #4d8dff;
+  --blue-dim: rgba(77, 141, 255, 0.14);
+  --green: #34d399;
+  --green-dim: rgba(52, 211, 153, 0.14);
+  --amber: #f0a94c;
+  --amber-dim: rgba(240, 169, 76, 0.14);
+  --rose: #f472b6;
+  --rose-dim: rgba(244, 114, 182, 0.14);
 
   --text-title: #eaeaec;
   --text-body: #9698a3;
@@ -53,6 +58,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
 }
 
 main {
@@ -62,7 +74,8 @@ main {
 .container {
   max-width: 880px;
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 0 clamp(16px, 5vw, 24px) 80px;
+  width: 100%;
 }
 
 h1, h2, h3 {
@@ -87,7 +100,9 @@ nav {
   align-items: center;
   max-width: 880px;
   margin: 0 auto;
-  padding: 18px 24px;
+  padding: 18px clamp(16px, 5vw, 24px);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .logo-block {
@@ -127,8 +142,9 @@ nav {
 
 nav ul {
   display: flex;
-  gap: 28px;
+  gap: clamp(12px, 3vw, 28px);
   list-style: none;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -165,7 +181,7 @@ nav a.active {
 .hero-kicker .logo-dot { box-shadow: 0 0 6px var(--green); }
 
 .hero h1 {
-  font-size: 3.6rem;
+  font-size: clamp(2rem, 5vw + 1rem, 3.6rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -224,7 +240,7 @@ nav a.active {
   font-size: 0.72rem;
   color: var(--green);
   background: var(--green-dim);
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  border: 1px solid rgba(52, 211, 153, 0.32);
   padding: 3px 10px;
   border-radius: 20px;
 }
@@ -321,7 +337,7 @@ nav a.active {
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.7rem, 4vw + 0.8rem, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.1;
@@ -492,7 +508,7 @@ nav a.active {
   font-size: 0.72rem;
   color: var(--green);
   background: var(--green-dim);
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  border: 1px solid rgba(52, 211, 153, 0.32);
   padding: 3px 9px;
   border-radius: 6px;
   flex-shrink: 0;
@@ -578,4 +594,226 @@ footer {
   color: var(--text-dim);
   font-size: 0.82rem;
   font-family: var(--font-mono);
+}
+
+
+/* ============================================================
+   COULEUR — accents vifs sur la base sombre
+   ============================================================ */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Halos colores discrets par-dessus la grille de fond */
+body {
+  background-image:
+    radial-gradient(760px circle at 12% -5%, rgba(124, 108, 247, 0.16), transparent 60%),
+    radial-gradient(620px circle at 92% 12%, rgba(77, 141, 255, 0.13), transparent 62%),
+    radial-gradient(680px circle at 50% 108%, rgba(52, 211, 153, 0.10), transparent 60%),
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: auto, auto, auto, 64px 64px, 64px 64px;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
+}
+
+/* Filet degrade en haut du header et du footer */
+header {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--violet), var(--blue) 40%, var(--green) 72%, var(--amber)) 1;
+  border-bottom: 1px solid var(--border);
+}
+
+footer {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--violet), var(--blue) 40%, var(--green) 72%, var(--amber)) 1;
+}
+
+/* Chiffre du hero en degrade */
+.hero h1 .accent-number {
+  color: var(--violet);
+  background: linear-gradient(120deg, var(--violet), var(--blue) 55%, var(--green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Boutons */
+.btn-solid {
+  background: linear-gradient(120deg, var(--violet), var(--blue));
+  color: #ffffff !important;
+  border-color: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--violet);
+  background: var(--violet-dim);
+}
+
+/* Metriques du bloc statut : une couleur par chiffre */
+.status-metric:nth-child(1) .status-metric-value { color: var(--green); }
+.status-metric:nth-child(2) .status-metric-value { color: var(--amber); }
+.status-metric:nth-child(3) .status-metric-value { color: var(--violet); }
+
+/* Cartes : lisere colore a gauche, couleur par section */
+.card {
+  border-left: 3px solid var(--violet);
+}
+
+section:nth-of-type(3n + 2) .card { border-left-color: var(--green); }
+section:nth-of-type(3n + 3) .card { border-left-color: var(--amber); }
+section:nth-of-type(3n + 2) .card-eyebrow { color: var(--green); }
+section:nth-of-type(3n + 3) .card-eyebrow { color: var(--amber); }
+
+.card:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* Etiquettes colorees (au lieu du gris uniforme) */
+.tag {
+  color: var(--violet);
+  background: var(--violet-dim);
+  border-color: rgba(124, 108, 247, 0.28);
+  transition: filter 0.15s ease, border-color 0.15s ease;
+}
+
+.tag:nth-child(4n + 2) { color: var(--green);  background: var(--green-dim);  border-color: rgba(52, 211, 153, 0.28); }
+.tag:nth-child(4n + 3) { color: var(--amber);  background: var(--amber-dim);  border-color: rgba(240, 169, 76, 0.28); }
+.tag:nth-child(4n + 4) { color: var(--rose);   background: var(--rose-dim);   border-color: rgba(244, 114, 182, 0.28); }
+
+.tag:hover { filter: brightness(1.25); border-color: currentColor; }
+
+/* Numero de section en degrade */
+.section-index {
+  background: linear-gradient(120deg, var(--violet), var(--green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* Soulignement degrade des titres de section */
+.section-head {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, var(--violet), transparent 70%) 1;
+}
+
+/* Puces de liste alternees */
+.styled-list li:nth-child(3n + 2)::before { color: var(--green); }
+.styled-list li:nth-child(3n + 3)::before { color: var(--amber); }
+
+/* Timeline : trait degrade, pastilles et dates alternees */
+.timeline::before {
+  width: 2px;
+  left: 4px;
+  background: linear-gradient(180deg, var(--violet), var(--blue) 45%, var(--green));
+}
+
+.timeline-item:nth-child(3n + 2)::before { border-color: var(--green); }
+.timeline-item:nth-child(3n + 3)::before { border-color: var(--amber); }
+.timeline-item:nth-child(3n + 2) .timeline-date { color: var(--green); }
+.timeline-item:nth-child(3n + 3) .timeline-date { color: var(--amber); }
+
+/* Certifications */
+.cert-card { border-left: 3px solid var(--green); }
+
+/* ============================================================
+   MOBILE — le texte etait calibre pour le desktop
+   ============================================================ */
+
+@media (max-width: 720px) {
+  /* le fond fixe fait sauter le rendu sur iOS */
+  body { background-attachment: scroll; }
+
+  /* Navigation : une ligne defilante, cibles tactiles confortables */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px clamp(16px, 5vw, 24px);
+  }
+
+  nav ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    gap: 8px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav ul::-webkit-scrollbar { display: none; }
+
+  nav li { flex: 0 0 auto; }
+
+  nav a {
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+
+  nav a.active {
+    color: var(--violet);
+    border-color: var(--violet);
+    background: var(--violet-dim);
+    border-bottom-color: var(--violet);
+  }
+
+  .logo-name { font-size: 1.1rem; }
+  .logo-tag { font-size: 0.75rem; }
+
+  /* Corps de texte */
+  body { font-size: 1.02rem; line-height: 1.7; }
+  .hero-bio { font-size: 1.08rem; }
+  .hero-kicker { font-size: 0.88rem; }
+  .page-subtitle { font-size: 1.02rem; }
+  .card p, .styled-list li { font-size: 1.02rem; }
+  .card h3 { font-size: 1.25rem; }
+  .card-eyebrow { font-size: 0.84rem; }
+  .section-head h2 { font-size: 1.4rem; }
+  .section-index { font-size: 0.85rem; }
+
+  /* Tous les petits libelles mono tombaient vers 11px */
+  .tag { font-size: 0.85rem; padding: 6px 12px; }
+  .status-pill { font-size: 0.82rem; padding: 5px 12px; }
+  .status-card-head span:first-child { font-size: 0.85rem; }
+  .status-metric { padding: 20px 18px; }
+  .status-metric-value { font-size: 2rem; }
+  .status-metric-label { font-size: 0.82rem; }
+  .timeline-date { font-size: 0.86rem; }
+  .timeline-item h3 { font-size: 1.25rem; }
+  .timeline-org { font-size: 1rem; }
+  .cert-badge { font-size: 0.82rem; padding: 5px 11px; }
+  .cert-info h3 { font-size: 1.1rem; }
+  .cert-info p { font-size: 0.95rem; }
+  .watch-date { font-size: 0.84rem; }
+  .watch-item h3 { font-size: 1.12rem; }
+  .project-meta-row { font-size: 0.98rem; gap: 10px 20px; }
+  .contact-card .card-icon-line { font-size: 0.98rem; }
+  .back-link { font-size: 0.98rem; padding: 8px 0; }
+  footer { font-size: 0.92rem; padding: 32px 20px; }
+
+  /* Cibles tactiles */
+  .btn { font-size: 1rem; padding: 14px 24px; min-height: 48px; }
+
+  /* Respiration */
+  .section { margin-top: 44px; }
+  .card { padding: 22px 20px; }
+}
+
+@media (max-width: 560px) {
+  .hero { padding: 40px 0 16px; }
+  .hero h1 { font-size: clamp(2.1rem, 8vw, 2.6rem); }
+  .hero-bio { font-size: 1.06rem; }
+  .page-title { font-size: clamp(1.8rem, 7vw, 2.2rem); }
+  .status-metric-value { font-size: 1.9rem; }
+  .status-card-head { flex-wrap: wrap; gap: 6px; }
+  .cert-card { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .container { padding-bottom: 56px; }
 }
