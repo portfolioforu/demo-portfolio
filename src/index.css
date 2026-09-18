@@ -30,13 +30,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Texte plus grand sur mobile pour rester lisible */
-@media (max-width: 640px) {
-  html {
-    font-size: 18px;
-  }
-}
-
 body {
   margin: 0;
   background-color: var(--color-bg);
